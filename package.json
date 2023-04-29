@@ -1,10 +1,14 @@
 {
-  "name": "onenus",
+  "name": "webby",
   "version": "0.1.4",
   "private": true,
   "dependencies": {
     "@heroicons/react": "^2.0.13",
     "@hookform/resolvers": "^2.9.10",
+    "@mui/base": "^5.0.0-alpha.127",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/lab": "^5.0.0-alpha.128",
+    "@mui/material": "^5.12.2",
     "@reduxjs/toolkit": "^1.9.1",
     "@tailwindcss/typography": "^0.5.8",
     "@types/react": "^18.0.26",
