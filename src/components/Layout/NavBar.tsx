@@ -4,7 +4,6 @@ import { Logout, Person } from "@mui/icons-material";
 import { UseMutateAsyncFunction } from "react-query";
 
 import { Link } from "components/Elements";
-import { useAuth } from "lib/auth";
 import logo from "assets/logo.svg";
 
 type LogoutButtonProps = {
@@ -44,10 +43,6 @@ const UserProfileButton = ({ id }: UserProfileButtonProps) => {
 };
 
 export const NavigationBar = () => {
-  const authUser = useAuth();
-
-  if (!authUser.user) return null;
-
   return (
     <nav className="px-2 sm:px-4 py-2.5 bg-primary fixed w-full z-20 top-0 left-0 border-b border-primary2">
       <div className="flex flex-row px-3">
@@ -58,13 +53,7 @@ export const NavigationBar = () => {
           </span>
         </Link>
         <div className="grow"></div>
-        <div className="felx md:order-2 h-auto">
-          <LogoutButton
-            logout={authUser.logout}
-            isLoggingOut={authUser.isLoggingOut}
-          />
-          <UserProfileButton id={authUser.user?.id} />
-        </div>
+        <div className="felx md:order-2 h-auto"></div>
       </div>
     </nav>
   );
