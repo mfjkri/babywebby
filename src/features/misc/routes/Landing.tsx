@@ -43,8 +43,8 @@ export const Landing = () => {
                   addNotification({
                     severity: "error",
                     variant: "standard",
-                    title: "Success",
-                    message: "Deleted your comment!",
+                    // title: "Success",
+                    message: "Success: Deleted your comment!",
                   })
                 );
                 // navigate("/auth/register");

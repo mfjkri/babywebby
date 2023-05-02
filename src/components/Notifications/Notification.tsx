@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
@@ -28,22 +28,16 @@ export const Notification = ({
   message,
   ttl = default_ttl[severity],
   onDismiss,
-  actionButton,
 }: NotificationProps) => {
-  const dismissNotification = useCallback(async () => {
-    onDismiss(id);
-  }, [id, onDismiss]);
-
   useEffect(() => {
-    // setTimeout(dismissNotification, ttl);
-  }, [dismissNotification, ttl]);
+    // setTimeout(() => ), ttl);
+  }, [ttl]);
 
   return (
     <Alert
       severity={severity}
       variant={variant}
-      onClose={dismissNotification}
-      action={actionButton}
+      onClose={() => onDismiss(id)}
       className="min-w-full mt-2"
     >
       {title && <AlertTitle>{title}</AlertTitle>}

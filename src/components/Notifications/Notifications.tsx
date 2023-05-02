@@ -1,4 +1,5 @@
-import { Box, Snackbar, Stack } from "@mui/material";
+import { Box, Collapse, List, ListItem, Snackbar } from "@mui/material";
+import { TransitionGroup } from "react-transition-group";
 
 import { useAppSelector, useAppDispatch } from "hooks/typedRedux";
 
@@ -22,23 +23,30 @@ export const Notifications = () => {
   const dismiss = (id: number) => dispatch(dismissNotification(id));
 
   return (
-    <Stack spacing={2}>
-      <Snackbar
-        open={true}
-        anchorOrigin={{ vertical: "top", horizontal: "center" }}
-        sx={{ minWidth: "75vw" }}
-      >
-        <Box sx={{ width: "100%" }}>
-          {notifications.map((notification) => (
-            <Notification
-              key={notification.id}
-              onDismiss={dismiss}
-              {...notification}
-            />
-          ))}
-        </Box>
-      </Snackbar>
-    </Stack>
+    <Snackbar
+      open={true}
+      anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      sx={{ minWidth: "75vw" }}
+      autoHideDuration={1500}
+    >
+      <List>
+        <TransitionGroup>
+          <Box sx={{ width: "100%" }}>
+            {notifications.map((notification) => (
+              <Collapse key={notification.id} in={true}>
+                <ListItem>
+                  <Notification
+                    key={notification.id}
+                    onDismiss={dismiss}
+                    {...notification}
+                  />
+                </ListItem>
+              </Collapse>
+            ))}
+          </Box>
+        </TransitionGroup>
+      </List>
+    </Snackbar>
   );
 };
 

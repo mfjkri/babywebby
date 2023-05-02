@@ -8,7 +8,6 @@ export type Notif = {
   message: string;
   title?: string;
   ttl?: number;
-  actionButton?: React.ReactElement;
 };
 
 type NotificationsStateProps = {
