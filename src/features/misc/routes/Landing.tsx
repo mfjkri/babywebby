@@ -8,6 +8,7 @@ import { addNotification } from "components/Notifications";
 import { Head } from "components/Head";
 import { Footer } from "components/Layout";
 import logo from "assets/logo.svg";
+import { ConfirmationDialog } from "components/Elements";
 
 export const Landing = () => {
   const navigate = useNavigate();
@@ -52,6 +53,13 @@ export const Landing = () => {
             >
               Register
             </Button>
+
+            <ConfirmationDialog
+              triggerButton={<Button>BUBUBU</Button>}
+              confirmButton={<Button>SOMETHING ELSE</Button>}
+              title="something something something something"
+              body="Something somethign something something something"
+            />
           </div>
         </div>
       </div>
